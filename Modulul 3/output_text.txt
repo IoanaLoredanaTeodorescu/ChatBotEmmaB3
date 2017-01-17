@@ -2,41 +2,28 @@ LANGUAGE:en
 SYNONYMS:
 Hello:'hello'
 ,:
-My:'My'
-name:'name'
-is:'embody', 'exist', 'equal', 'cost', 'constitute', 'be'
-John:'john', 'toilet', 'whoremaster'
-Cernat:'Cernat'
-,:
-I:
-live:'be', 'live', 'know', 'exist', 'populate', 'survive'
-in:
-Romania:'romania'
-and:
-I:
-work:'make', 'cultivate', 'work', 'exploit', 'shape', 'bring', 'influence', 'knead', 'function', 'ferment', 'sour', 'solve', 'exercise'
-at:
-Google:'google'
+how:
+are:'equal', 'constitute', 'exist', 'cost', 'embody', 'be'
+you:
+doing:'perform', 'do', 'suffice', 'practice', 'act', 'make', 'dress', 'cause', 'serve'
+?:
+Are:'are'
+you:
+fine:'all_right', 'fine'
+?:
+Miguel:'Miguel'
 NAMED ENTITIES
 ('Hello', 'GPE')
-('John Cernat', 'PERSON')
-('Romania', 'GPE')
-('Google', 'ORGANIZATION')
 Words with POS TAG:
 ('Hello', 'NNP')
 (',', ',')
-('My', 'NNP')
-('name', 'NN')
-('is', 'VBZ')
-('John', 'NNP')
-('Cernat', 'NNP')
-(',', ',')
-('I', 'PRP')
-('live', 'VBP')
-('in', 'IN')
-('Romania', 'NNP')
-('and', 'CC')
-('I', 'PRP')
-('work', 'VBP')
-('at', 'IN')
-('Google', 'NNP')
+('how', 'WRB')
+('are', 'VBP')
+('you', 'PRP')
+('doing', 'VBG')
+('?', '.')
+('Are', 'NNP')
+('you', 'PRP')
+('fine', 'JJ')
+('?', '.')
+('Miguel', 'NN')
