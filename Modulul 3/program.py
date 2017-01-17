@@ -15,12 +15,21 @@ style.use('fivethirtyeight')
 
 
 # Process text
-def process_text():
-    raw_text = open("sample_text.txt").read()
-    token_text = word_tokenize(raw_text)
-    return token_text
+raw_text = open("sample_text.txt").read()
+#Singura functie necesara pentru detectarea limbii(avand ca intrare un paragraf)
+def get_language(paragraph):
+    return detect(paragraph)
+if detect(raw_text)!="en":
+    language_output = open("language.txt", "w")
+    language_output.write("Please text in English")
+    language_output.close()
+    quit()
+language_output=open("language.txt","w")
+language_output.write("{\"language\":"+"\""+get_language(open("sample_text.txt").read())+"\"}")
+language_output.close()
 
-token_text=process_text()
+token_text = word_tokenize(raw_text)
+
 tagged_words = nltk.pos_tag(token_text)
 
 # NER taggers
@@ -44,9 +53,7 @@ def structure_ne(ne_tree):
 
 ne_tagged=structure_ne(nltk_tagger())
 
-#Singura functie necesara pentru detectarea limbii(avand ca intrare un paragraf)
-def get_language(paragraph):
-    return detect(paragraph)
+
 #Determinarea sinonimelor
 def penn_to_wn(tag):
     if tag.startswith('N'):
@@ -69,13 +76,13 @@ def Synonym(sent_tokenize_list):
         lemmatzr = WordNetLemmatizer()
         f.write("\"" + sent + "\":")
         if (sent[-1] == "?"):
-            g.write("\"" + sent + "\":\"intrebare\"")
+            g.write("\"" + sent + "\":\"questin\"")
             if (counter + 1 != len(sent_tokenize_list)):
                 g.write(",\n")
             else:
                 g.write("\n")
         else:
-            g.write("\"" + sent + "\":\"afirmatie\"")
+            g.write("\"" + sent + "\":\"statement\"")
             if (counter + 1 != len(sent_tokenize_list)):
                 g.write(",\n")
             else:
@@ -112,12 +119,9 @@ def Synonym(sent_tokenize_list):
     f.write("}")
     g.write("}")
 
-
-Synonym(sent_tokenize("Cartman is just big boned and he likes chocolate. Remember Nagasaki"))
+Synonym(sent_tokenize(raw_text))
 #nltk_main()
-language_output=open("language.txt","w")
-language_output.write("{\"language\":"+"\""+get_language(open("sample_text.txt").read())+"\"}")
-language_output.close()
+
 postag_output=open("postag.txt","w")
 postag_output.write("{")
 for i in tagged_words:

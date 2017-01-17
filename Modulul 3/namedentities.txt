@@ -1,1 +1,1 @@
-{"Hi":"GPE","John Cena":"PERSON","WWE":"ORGANIZATION","USA":"ORGANIZATION",}
+{"Hi":"GPE","John Terry":"PERSON","America":"GPE","Tesla":"ORGANIZATION",}
