@@ -22,7 +22,6 @@
 		</random>
 	</category>
 -->
-
 	<category>
 		<pattern>MY NAME IS *</pattern>
 		<template>Nice to meet you ,<set name="name"><star/></set></template>
@@ -47,6 +46,82 @@
 
 	
 	<!-- What is area -->
+	<catgory>
+		<pattern>My name is *</pattern>
+		<template>Nice to meet you, <set name="first_name"><star/></set>,I am <bot name="lastName"></template>
+	</category>
+	
+	<catgory>
+		<pattern>I am * years old</pattern>
+		<template> <set name="age"><star/></set> I have <bot name="age">, close enough!</template>
+	</category>
+	
+	<catgory>
+		<pattern>My name is * and I am * years old</pattern>
+		<set name="first_name"><star index="1"></set>
+		<set name="age"> <star index="2"/> </set>
+		<template> Hi <star/>. I am also <star index="2"/> years old!.By the way my name is <bot name="lastName">.</template>
+	</category>
+	
+	<catgory>
+		<pattern>I live in *</pattern>
+		<template><think><set name="country"><star/></set></think>That sounds like a nice place to live in.But not better than <bot name="country"></template>
+	</category>
+	
+	<catgory>
+		<pattern>My hair color is *</pattern>
+		<template><set name="hair_color"><star/></set>Nice color! Mine is <bot name="hair_color"></template>
+	</category>
+	
+	<catgory>
+		<pattern>My eyes are *</pattern>
+		<template><set name="eyes_color"><star/></set>Nice color! But I think my <bot name="eyes_color"> eyes are unique.</template>
+	</category>
+	
+	<catgory>
+		<pattern>What is my name</pattern>
+		<template><random>
+				<li>It's <get name="first_name"> ofcourse.</li>
+				<li>I believe it's <get name="first_name"></li>
+				<li>Wait I know that.It's R..C..M..I.I can't remember...Ohhhh wait it's <get name="first_name"> how could I forget.
+			</random></template>
+	</category>
+	
+	
+	
+	<!-- bot personality mapping -->
+	<catgory>
+		<pattern>What is your name</pattern>
+		<template>My name is <bot name="lastName"></template>
+	</category>
+	
+	<catgory>
+		<pattern>How old are you</pattern>
+		<template>I am <bot name="age"> years old!</template>
+	</category>
+	
+	<catgory>
+		<pattern>Where are you from</pattern>
+		<template>I am from <bot name="country"></template>
+	</category>
+	
+	<catgory>
+		<pattern>Which city</pattern>
+		<template>from <bot name="city"></template>
+	</category>
+	
+	<catgory>
+		<pattern>What is your hair color</pattern>
+		<template>My hair is  <bot name="hair_color"></template>
+	</category>
+
+	<catgory>
+		<pattern>What is your eyes color</pattern>
+		<template>My eyes are <bot name="eyes_color"></template>
+	</category>
+
+	<!-- bot personality mapping END -->
+
 	<category>
 		<pattern>DO YOU KNOW WHAT * IS?</pattern>
 		<template><srai>WHAT IS THE <star/></srai></template>
@@ -57,6 +132,7 @@
 		<template>WHAT ARE THE <star/></template>
 	</category>
 	
+
 	<catgory>
 		<pattern>What is my name</pattern>
 		<template>Your name is <get name="name"/>.</template>
@@ -64,6 +140,9 @@
 				<li>It's <get name="name"> ofcourse.</li>
 			</random>
 	</category>
+
+	
+
 
 	<category>
 		<pattern>WHAT ARE YOU</pattern>
@@ -594,6 +673,9 @@
 
 	<category>
 		<pattern>WHAT IS THE HUMAN BODY’S BIGGEST ORGAN </pattern>
+
+		<pattern>WHAT IS THE HUMAN BODYÂ’S BIGGEST ORGAN </pattern>
+
 		<template>That's quite funny actually, it's the skin. </template>
 	</category>
 
@@ -657,4 +739,8 @@
 		<template>Did you know there is an increased risk of depression in those with severe headaches? </template>
 	</category>
 
+
 </aiml>
+
+</aiml>
+

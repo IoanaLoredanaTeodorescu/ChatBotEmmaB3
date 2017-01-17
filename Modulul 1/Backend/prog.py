@@ -10,6 +10,11 @@ from randomAnswer import RandomAnswer
 import random
 import isEnglishOrJibberish
 
+from time import *
+from split_sentences import *
+import timeit #linia 1
+
+
 app = Flask(__name__)
 
 db = MySQLdb.connect(host="ppdatabase.ccvycmsqlp8u.eu-central-1.rds.amazonaws.com",    # your host, usually localhost
@@ -45,11 +50,22 @@ botMood = Mood()
 attr=getPeopleAttributes()
 iKnowOp=2
 
+
 # Press CTRL-C to break this loop
 @app.route('/<question>')
 def main(question):
     global attr
     global iKnowOp
+
+start = 0
+# Press CTRL-C to break this loop
+@app.route('/<question>')
+def main(question):
+    stop = timeit.default_timer()
+    global attr
+    global iKnowOp
+    global start
+
     print botMood.get_current_mood(question)
     #users=table
     bootMemory= Memory()
@@ -77,6 +93,16 @@ def main(question):
         res = rnd.answer(questions)
 
     bootMemory.addResponse(res)
+
+    time = stop - start
+    if time > 20:
+        time_obj = Time_answer()
+        res = time_obj.time_answer(time)
+
+    bootMemory.addResponse(res)
+    print stop - start
+    start = timeit.default_timer()
+
     return res
 
 
