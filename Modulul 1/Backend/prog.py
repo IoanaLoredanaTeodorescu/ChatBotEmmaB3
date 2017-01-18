@@ -1,6 +1,6 @@
 from flask import Flask
 from flask_cors import CORS, cross_origin
-import MySQLdb, aiml,os
+import MySQLdb, aiml, os
 from memory_check import Memory
 import threading
 from mood import Mood
@@ -8,17 +8,19 @@ from personBD import *
 from personality import *
 from randomAnswer import RandomAnswer
 import random
+import re
+from send_email import email
 import isEnglishOrJibberish
 from time import *
 from split_sentences import *
-import timeit #linia 1
+import timeit  # linia 1
 
 app = Flask(__name__)
 
-db = MySQLdb.connect(host="ppdatabase.ccvycmsqlp8u.eu-central-1.rds.amazonaws.com",    # your host, usually localhost
-                     user="mariusdonici",         # your username
+db = MySQLdb.connect(host="ppdatabase.ccvycmsqlp8u.eu-central-1.rds.amazonaws.com",  # your host, usually localhost
+                     user="mariusdonici",  # your username
                      passwd="carrymeteodorescu",  # your password
-                     db="ia")        # name of the data base
+                     db="ia")  # name of the data base
 
 cur = db.cursor()
 
@@ -28,37 +30,46 @@ cur = db.cursor()
 #     print row[0]
 cur.execute("SELECT * FROM Users")
 
-table= cur.fetchall()
+table = cur.fetchall()
 cur.execute("SELECT * FROM questions")
 questions = cur.fetchall()
 
 db.close()
 
 rnd = RandomAnswer()
-sessionId=12345
+sessionId = 12345
 # Create the kernel and learn AIML files
 kernel = aiml.Kernel()
 kernel.learn("std-startup.xml")
 kernel.respond("load aiml b")
 
-initialize_bot(kernel,sessionId)
+initialize_bot(kernel, sessionId)
 
 botMood = Mood()
 
-attr=getPeopleAttributes()
-iKnowOp=2
+attr = getPeopleAttributes()
+iKnowOp = 2
 
 start = 0
-pairQA_dict={}
-res=""
+pairQA_dict = {}
+res = ""
 # Press CTRL-C to break this loop
-sendNew_res=0
-#load json
-json_data=open("QA.json").read()
-all_QA=json.loads(json_data)
+sendNew_res = 0
+# load json
+json_data = open("QA.json").read()
+all_QA = json.loads(json_data)
+email = email()
+
 # Press CTRL-C to break this loop
 @app.route('/<question>')
 def main(question):
+    if 'Send email' in question:
+        try:
+            data = re.split(r'Send email to|\ssubject|message', question)
+            email.send_email(data[1],data[2],data[3])
+            return 'Email to '+data[1]+' sent'
+        except Exception as e:
+            print e
     stop = timeit.default_timer()
     global attr
     global iKnowOp
@@ -67,8 +78,10 @@ def main(question):
     global res
     global sendNew_res
     print botMood.get_current_mood(question)
-    #users=table
-    bootMemory= Memory()
+
+
+    # users=table
+    bootMemory = Memory()
     if not sendNew_res and res.endswith('?'):
         if len(attr) == 1:
             pers = attr[0]
@@ -84,7 +97,7 @@ def main(question):
                     return new_res
         pairQA_dict[res] = question
     sendNew_res = 0
-    res=kernel.respond(question,sessionId)
+    res = kernel.respond(question, sessionId)
     if res == 'CLOSING SESSION':
         print pairQA_dict
         if len(attr) == 1:
@@ -106,30 +119,30 @@ def main(question):
     jibberish_array = json.loads(responses_incase_nonenglish)
     if not (isEnglishOrJibberish.is_english_sentence(question)):
         return random.choice(jibberish_array)
-    res=synonymCheck("resources/synonyms.json",question)
-    if bootMemory.checkQuestionRepetition(question)==1:
+    res = synonymCheck("resources/synonyms.json", question)
+    if bootMemory.checkQuestionRepetition(question) == 1:
         bootMemory.addQuestion(question)
-        response=bootMemory.getRandomForRepetition()
+        response = bootMemory.getRandomForRepetition()
         bootMemory.addResponse(response)
         return response
     bootMemory.addQuestion(question)
 
-    if len(attr)>1:
-        attr=verifyExistence(kernel,sessionId,attr)
-    if len(attr)==1:
+    if len(attr) > 1:
+        attr = verifyExistence(kernel, sessionId, attr)
+    if len(attr) == 1:
         iKnowOp = 1
         pers = attr[0]
         updateAttributes(kernel, attr[0], sessionId)
-    if len(attr)==0:
+    if len(attr) == 0:
         iKnowOp = 0
-        decideToMemorate(kernel,sessionId)
+        decideToMemorate(kernel, sessionId)
 
-    if res=='':
+    if res == '':
         res = rnd.answer(questions)
     time = stop - start
-    if time > 20:
-        time_obj = Time_answer()
-        res = time_obj.time_answer(time)
+    # if time > 20:
+    #     time_obj = Time_answer()
+    #     res = time_obj.time_answer(time)
 
     bootMemory.addResponse(res)
     print stop - start
@@ -143,7 +156,7 @@ def deleteContent(fName):
 
 
 def synonymCheck(filePath, question):
-    res=kernel.respond(question,sessionId)
+    res = kernel.respond(question, sessionId)
     if res is not None:
         return res
     with open(filePath) as data_file:
@@ -152,7 +165,7 @@ def synonymCheck(filePath, question):
         aux = question
         for j in data[i]:
             aux = aux.replace(i, data[i][j])
-            res=kernel.respond(aux,sessionId)
+            res = kernel.respond(aux, sessionId)
             if res is not None:
                 return res
             aux = question
