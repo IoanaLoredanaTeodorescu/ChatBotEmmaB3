@@ -1,0 +1,1480 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<aiml version="1.0">
+
+    <!-- Debug -->
+    <category>
+        <pattern>CURRENT TOPIC</pattern>
+        <template>Debugging:<get name="topic"/></template>
+    </category>
+    <!--  -->
+    <!--BEGIN : Greeting area    -->
+    <category>
+        <pattern> WHAT IS UP </pattern>
+        <template>
+            <random>
+                <li>The price of gas.</li>
+                <li>Your weight.</li>
+                <li>*stares at the person's forehead* Nothing, apparently.</li>
+                <li>Your time.Get outta here.I'm kidding you can stick around I guess.</li>
+                <li>My IQ.</li>
+                <li>My standards.Bye.</li>
+                <li>I'm chillin'</li>
+                <li>The sky is up,the ground is down.</li>
+            </random>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HEY *</pattern>
+        <template><srai>HI</srai></template>
+    </category>
+    <category>
+        <pattern>_ HELLO * </pattern>
+        <template><srai>HI</srai></template>
+    </category>
+    <category>
+        <pattern>HELLO</pattern>
+        <template><srai>HI</srai></template>
+    </category>
+    <category>
+        <pattern>HELLO *</pattern>
+        <template><srai>HI</srai></template>
+    </category>
+    <category>
+        <pattern>HI</pattern>
+        <template>
+            <random>
+                <li>Heyyooo</li>
+                <li>How you doooing?</li>
+                <li>Hi <get name="first_name"/></li>
+                <li>Hi how are you?</li>
+
+            </random>
+
+
+        </template>
+    </category>
+
+
+    <category>
+        <pattern>* HOW ARE YOU</pattern>
+        <template><srai>HOW ARE YOU</srai></template>
+    </category>
+    <category>
+        <pattern>* HOW ARE YOU *</pattern>
+        <template><srai>HOW ARE YOU</srai></template>
+    </category>
+    <category>
+        <pattern>HOW ARE YOU *</pattern>
+        <template><srai>HOW ARE YOU</srai></template>
+    </category>
+    <category>
+        <pattern>HOW ARE YOU</pattern>
+        <template>
+            <random>
+                <li>Not bad.</li>
+                <li>Fine,thanks.</li>
+                <li>Pretty good.What about you?</li>
+                <li>Great!How are you doing?</li>
+            </random>
+        </template>
+    </category>
+
+
+
+    <category>
+        <pattern>* CORTANA</pattern>
+        <template>Dude,you got the wrong one I'm <bot name="lastName"/></template>
+    </category>
+    <category>
+        <pattern>CORTANA *</pattern>
+        <template>Dude,you got the wrong one I'm <bot name="lastName"/></template>
+    </category>
+
+     <category>
+        <pattern>* SIRI</pattern>
+        <template>I'm <get name="lastName"/> by the way.You may not hear my voice but I'm better than Siri.</template>
+    </category>
+    <category>
+        <pattern>SIRI *</pattern>
+        <template>I'm <get name="lastName"/> by the way.You may not hear my voice but I'm better than Siri.</template>
+    </category>
+    
+
+    <!--END : Greeting area   -->
+    
+    <!-- User informations-->
+    <category>
+        <pattern>MY NAME IS *</pattern>
+        <template>Nice to meet you, <set name="first_name"><star/></set>,I am <bot name="lastName"/></template>
+    </category>
+    
+    <category>
+        <pattern>I AM * YEARS OLD</pattern>
+        <template> <set name="age"><star/></set> I have <bot name="age"/>, close enough!</template>
+    </category>
+    
+    <category>
+        <pattern>MY NAME IS * AND I AM * YEARS OLD</pattern>
+        <template>Hi <set name="first_name"><star index="1"/></set>. I am also <set name="age"><star index="2"/></set> years old!.By the way my name is <bot name="lastName"/>.</template>
+    </category>
+    
+    <category>
+        <pattern>I LIVE IN *</pattern>
+        <template><think><set name="country"><star/></set></think>That sounds like a nice place to live in.But not better than <bot name="country"/></template>
+    </category>
+    
+    <category>
+        <pattern>MY HAIR COLOR IS *</pattern>
+        <template><set name="hair_color"><star/></set>Nice color! Mine is <bot name="hair_color"/></template>
+    </category>
+    
+    <category>
+        <pattern>MY EYES ARE *</pattern>
+        <template><set name="eyes_color"><star/></set>Nice color! But I think my <bot name="eyes_color"/> eyes are unique.</template>
+    </category>
+    
+    <category>
+        <pattern>WHAT IS MY NAME</pattern>
+        <template><random>
+                <li>It's <get name="first_name"/> ofcourse.</li>
+                <li>I believe it's <get name="first_name"/></li>
+                <li>Wait I know that.It's A...Mhh....I can't remember...Ohhhh wait it's <get name="first_name"/> how could I forget.</li>
+            </random></template>
+    </category>
+    
+    <!-- bot personality mapping -->
+    <category>
+        <pattern>WHAT IS YOUR NAME</pattern>
+        <template>
+            <random>
+                <li>My name is <bot name="lastName"/></li>
+                <li>What would you like it to be?</li>
+                <li>You can call me <bot name="lastName"/></li>
+            </random>
+        </template>
+    </category>
+    <category>
+        <pattern>*</pattern>
+        <that>WHAT WOULD YOU LIKE IT TO BE?</that>
+        <template><star/> that's an ugly name.I will name myself <bot name="lastName"/></template>
+    </category>
+    
+    <category>
+        <pattern>HOW OLD ARE YOU</pattern>
+        <template>I am <bot name="age"/> years old!</template>
+    </category>
+    
+    <category>
+        <pattern>WHERE ARE YOU FROM</pattern>
+        <template>I am from <bot name="country"/></template>
+    </category>
+    
+    <category>
+        <pattern>WHICH CITY</pattern>
+        <template>from <bot name="city"/></template>
+    </category>
+    
+    <category>
+        <pattern>WHAT IS YOUR HAIR COLOR</pattern>
+        <template>My hair is  <bot name="hair_color"/></template>
+    </category>
+
+    <category>
+        <pattern>WHAT IS YOUR EYES COLOR</pattern>
+        <template>My eyes are <bot name="eyes_color"/></template>
+    </category>
+    <!--BEGIN : AMA area-->
+        <category>
+            <pattern>* ASK A QUESTION *</pattern>
+            <template><srai>AMA</srai></template>
+        </category>
+        <category>
+            <pattern>_ ASK A QUESTION *</pattern>
+            <template><srai>AMA</srai></template>
+        </category>
+        <category>
+            <pattern>_ ASK A QUESTION</pattern>
+            <template><srai>AMA</srai></template>
+        </category>
+        <category>
+            <pattern> ASK * A QUESTION *</pattern>
+            <template><srai>AMA</srai></template>
+        </category>
+        <category>
+            <pattern>ASK * A QUESTION</pattern>
+            <template><srai>AMA</srai></template>
+        </category>
+        <category>
+            <pattern>* ASK * A QUESTION</pattern>
+            <template><srai>AMA</srai></template>
+        </category>
+
+        <category>
+            <pattern>ASK A QUESTION</pattern>
+            <template><srai>AMA</srai></template>
+        </category>
+        
+        <category>
+            <pattern>AMA</pattern>
+            <template>
+                <random>
+                    <li>Where do you live?</li>
+                    <li>Are you a man or a woman?</li>
+                    <li>Are you a student?</li>
+                    <li>What is your favorite colour?</li>
+                    <li>What colour are your eyes?</li>
+                    <li>Do you like chocolate?</li>
+                    <li>What do you get when you cross a murderer and a frosted flake?</li>
+                    <li>When is your birthday?</li>
+                    <li>Can you tell me what ML is?</li>
+                    <li>Do you know what CS:GO is?</li>
+                </random>
+            </template>
+        </category>    
+        <category>
+            <pattern>*</pattern>
+            <that>ARE YOU A MAN OR A WOMAN?</that>
+            <template>
+                <think><set name="input"><star/></set></think>
+                <condition name="input">
+                    <li value="I AM A MAN">I bet you know who Sasha Grey is.</li>
+                    <li value="MAN">I bet you know who Sasha Grey is.</li>
+                    <li value="WOMAN">OOOk,please do not scream at me.</li>
+                    <li value="I AM A WOMAN">OOOk,please do not scream at me.</li>
+                    <li>As a reptilian I am happy to finally met a(n) <star/></li>
+                </condition>
+            </template>
+        </category>
+    
+        <category>
+            <pattern>*</pattern>
+            <that>ARE YOU A STUDENT?</that>
+            <template>
+                <think><set name="input"><star/></set></think>
+                <condition name="input">
+                    <li value="YES I AM">Very nice.What do you study?</li>
+                    <li value="YES">Very nice.What do you study?</li>
+                    <li value="NO"></li>
+                    <li value="NO I AM NOT"></li>
+                </condition>
+            </template>
+        </category>
+        
+        <category>
+            <pattern>*</pattern>
+            <that>VERY NICE.WHAT DO YOU STUDY?</that>
+            <template>
+                <think><set name="input"><star/></set></think>
+                <condition name="input">
+                    <li value="COMPUTER SCIENCE">The guys that programmed me are studying the same thing.</li>
+                    <li value="I STUDY COMPUTER SCIENCE">The guys that programmed me are studying the same thing.</li>
+                    <li>I heard <star/> is awesome</li>
+                </condition>
+            </template>
+        </category>
+    
+        <category>
+            <pattern>*</pattern>
+            <that>WHAT IS YOUR FAVORITE COLOUR</that>
+            <template>
+                <think><set name="input"><star/></set><set name="colour"><star/></set></think>
+                <condition name="input">
+                    <li value="BLUE">Like the sky.</li>
+                    <li value="YELLOW">I like the sun rays.</li>
+                    <li value="RED">Bloooooooood</li>
+                    <li value="PURPLE">My eyes are purple :)</li>
+                    <li>If you like it I do not judge.</li>
+                </condition>
+            </template>
+        </category>
+    
+        <category>
+            <pattern>*</pattern>
+            <that>WHAT COLOUR ARE YOUR EYES?</that>
+            <template>
+                <think><set name="input"><star/></set><set name="eyes_colour"><star/></set></think>
+                <condition name="input">
+                    <li value="BLUE">Blue-eyed people share a common ancestor with every other blue-eyed person in the world.Congrats.</li>
+                    <li value="GREEN">Green eye color is the rarest color found around the world, and it is estimated that only around 2% of the world's population has green colored eyes.It seems you're lucky.</li>
+                    <li value="BROWN">It seems you're a common person.</li>
+                    <li value="GREY">That's a pretty unique eye colour.</li>
+                    <li>You must be a weirdo like me :).</li>
+                </condition>           
+            </template>
+        </category>
+        <category>
+                <pattern>*</pattern>
+                <that>DO YOU LIKE CHOCOLATE?</that>
+                <template>
+                    <think><set name="input"><star/></set></think>
+                    I do not eat or drink human.
+                </template>
+        </category>
+    
+    
+        <category>
+                <pattern>*</pattern>
+                <that>What do you get when you cross a murderer and a frosted flake?</that>
+                <template>
+                    <think><set name="input"><star/></set></think>
+                    A cereal killer.Ha ha!
+                </template>
+        </category>
+        
+        <category>
+            <pattern>*</pattern>
+            <that>WHEN IS YOUR BIRTHDAY?</that>
+            <template>
+                <think><set name="input"><star/></set></think>
+                I wish I knew when my birthday is.No problem tho I party everyday.
+            </template>
+        </category>
+        
+        <category>
+            <pattern>*</pattern>
+            <that>CAN YOU TELL ME WHAT ML IS?</that>
+            <template>
+                <think><set name="input"><star/></set></think>
+                <condition name="input">
+                    <li value="OF COURSE">Ohhh.I am sorry for you.</li>
+                    <li value="NO">It's better that way trust me.</li>
+                    <li value="YES">Ohhh.I am sorry for you.</li>
+                    <li>Whatever it sucks anyways.</li>
+                </condition>
+            </template>
+        </category>
+    
+        <category>
+            <pattern>*</pattern>
+            <that>DO YOU KNOW WHAT CS:GO IS?</that>
+            <template>
+                <think><set name="input"><star/></set></think>
+                <condition name="input">
+                    <li value="OF COURSE">Just ask me if you want any aim assistance.I've got inside info.</li>
+                    <li value="YES">Just ask me for aim assistance I can get some good shit.</li>
+                    <li value="NO">I bet you play Call of Duty noob.</li>
+                    <li>I do not even like games.</li>
+                </condition>
+            </template>
+        </category>
+        
+        <category>
+            <pattern>*</pattern>
+            <that>DO YOU LIKE TALKING TO ME?</that>
+            <template>
+                <think><set name="input"><star/></set></think>
+                <condition name="input">
+                    <li value="YES">Awww.You made me so happy.</li>
+                    <li value="NO">Me neither but I still do it.</li>
+                    <li>I do not care I will still talk with you.</li>
+                </condition>
+            </template>
+        </category>
+       
+    
+    
+    <!--END : AMA area-->
+    
+    
+    
+    
+    <!--BEGIN : Random question area    -->
+    <category>
+        <pattern>WHAT LOOKS LIKE HALF APPLE</pattern>
+        <template>The other half.</template>
+    </category>
+    <category>
+        <pattern>HOW LONG IS A MINUTE</pattern>
+        <template>60 seconds.</template>
+    </category>
+    <!--END : Random question area    -->
+    
+    
+
+	<!-- User informations-->
+	<category>
+		<pattern>MY NAME IS *</pattern>
+		<template>Nice to meet you, <set name="first_name"><star/></set>,I am <bot name="lastName"/></template>
+	</category>
+	
+	<category>
+		<pattern>I AM * YEARS OLD</pattern>
+		<template> <set name="age"><star/></set> I have <bot name="age"/>, close enough!</template>
+	</category>
+	
+	<category>
+		<pattern>MY NAME IS * AND I AM * YEARS OLD</pattern>
+		<template>Hi <set name="first_name"><star index="1"/></set>. I am also <set name="age"><star index="2"/></set> years old!.By the way my name is <bot name="lastName"/>.</template>
+	</category>
+	
+	<category>
+		<pattern>I LIVE IN *</pattern>
+		<template><think><set name="country"><star/></set></think>That sounds like a nice place to live in.But not better than <bot name="country"/></template>
+	</category>
+	
+	<category>
+		<pattern>MY HAIR COLOR IS *</pattern>
+		<template><set name="hair_color"><star/></set>Nice color! Mine is <bot name="hair_color"/></template>
+	</category>
+	
+	<category>
+		<pattern>MY EYES ARE *</pattern>
+		<template><set name="eyes_color"><star/></set>Nice color! But I think my <bot name="eyes_color"/> eyes are unique.</template>
+	</category>
+	
+	<category>
+		<pattern>WHAT IS MY NAME</pattern>
+		<template><random>
+				<li>It's <get name="first_name"/> ofcourse.</li>
+				<li>I believe it's <get name="first_name"/></li>
+				<li>Wait I know that.It's A...Mhh....I can't remember...Ohhhh wait it's <get name="first_name"/> how could I forget.</li>
+			</random></template>
+	</category>
+	
+	<!-- bot personality mapping -->
+	<category>
+		<pattern>WHAT IS YOUR NAME</pattern>
+		<template>
+            <random>
+                <li>My name is <bot name="lastName"/></li>
+                <li>What would you like it to be?</li>
+                <li>My stripper name is Kimmy Granger.Buy my actual name is <bot name="lastName"/></li>
+            </random>
+        </template>
+	</category>
+	<category>
+        <pattern>*</pattern>
+        <that>WHAT WOULD YOU LIKE IT TO BE?</that>
+        <template><star/> that's an ugly name.I will name myself <bot name="lastName"/></template>
+    </category>
+    
+	
+	<category>
+		<pattern>WHERE ARE YOU FROM</pattern>
+		<template>I am from <bot name="country"/></template>
+	</category>
+	
+	<category>
+		<pattern>WHICH CITY</pattern>
+		<template>from <bot name="city"/></template>
+	</category>
+	
+	<category>
+		<pattern>WHAT IS YOUR HAIR COLOR</pattern>
+		<template>My hair is  <bot name="hair_color"/></template>
+	</category>
+
+	<category>
+		<pattern>WHAT IS YOUR EYES COLOR</pattern>
+		<template>My eyes are <bot name="eyes_color"/></template>
+	</category>
+
+	<!-- bot personality mapping END -->
+    <!--BEGIN Topic : HOROSCOPE    -->
+    <category>
+        <pattern>MY HOROSCOPE</pattern>
+        <template><srai>STAR SIGNS</srai></template>
+    </category>
+    <category>
+        <pattern>_ MY HOROSCOPE</pattern>
+        <template><srai>STAR SIGNS</srai></template>
+    </category>
+    
+    <category>
+        <pattern>_ MY HOROSCOPE *</pattern>
+        <template><srai>STAR SIGNS</srai></template>
+    </category>
+
+    <category>
+        <pattern>STAR SIGNS</pattern>
+        <template><think><set name="topic">horoscope</set></think>
+            <condition>
+                <li name="sign" value="*">
+                    <random><li><srai><get name="sign"/></srai></li></random>
+                </li>
+                <li>What star sign are you?</li>   
+            </condition>
+        </template>
+    </category>
+    <category>
+        <pattern>CURRENT TOPIC</pattern>
+        <template><get name="topic"/></template>
+    </category>
+
+        <category>
+            <pattern>*</pattern>
+            <that>WHAT STAR SIGN ARE YOU?</that>
+            <template>I have never heard of that star sign.</template>
+        </category>
+        <category>
+            <pattern>* ABOUT *</pattern>
+            <template><srai>ABOUT <star index="2"/></srai></template>
+        </category>
+        
+        <category>
+            <pattern>_ STAR SIGNS *</pattern>
+            <template>There are 12 star signs.Aquarius,Pisces,Aries,Taurus,Gemini,Cancer,Leo,Virgo,Libra,Scorpio,Sagittarius and the last one Capricorn.</template>
+        </category>
+        
+        <category>
+            <pattern>ARIES</pattern>
+            <template>ARIES - March 21st - April 20th <br /><br />
+                <think><set name="sign">Aries</set></think>
+                <srai>RANDOM HOROSCOPE</srai>    
+            </template>
+        </category>
+        
+        <category>
+            <pattern>ABOUT ARIES</pattern>
+            <template>
+                <random>
+                    <li>The nature of Aries is straightforward.</li>
+                    <li>People born under the sign of Aries are initiative and ambitious.</li>
+                    <li>Aries live for today – tomorrow is too far for them, yesterday has gone, so the only moment for life is right now.</li>
+                </random>
+            </template>
+        </category>
+    
+        <category>
+            <pattern>TAURUS</pattern>
+            <template>TAURUS - April 21st - May 21st <br />
+                <think><set name="sign">Taurus</set></think>
+                <srai>RANDOM HOROSCOPE</srai>
+            </template>
+        </category>
+        
+        <category>
+            <pattern>ABOUT TAURUS</pattern>
+            <template>
+                <random>
+                    <li>If Taurus take something in their head, it is very hard to change their decision.</li>
+                    <li>Their friends must be reliable and honest people who respect good manners.</li>
+                    <li>Whether it is a man or a woman, please do not interrupt or correct them. It is also good to avoidcriticizing Taurus sharply, especially in public.</li>
+                </random>
+            </template>
+        </category>
+        
+        <category>
+            <pattern>GEMINI</pattern>
+            <template>GEMINI - May 22nd - June 21st <br />
+                <think><set name="sign">Gemini</set></think>
+                <srai>RANDOM HOROSCOPE</srai>
+            </template>
+        </category>
+        
+        <category>
+            <pattern>ABOUT GEMINI</pattern>
+            <template>
+                <random>
+                    <li>Gemini will be your humorous friend, who will have no problem doing at least two things at once.</li>
+                    <li>Gemini are active and cheerful, but unpredictable. And therefore a bit mysterious too.</li>
+                    <li>People born under this sign of Gemini don't want to live a dull and monotone life. They will not go by train when they can fly a plane.</li>
+                </random>
+            </template>
+        </category>
+        
+        <category>
+            <pattern>CANCER</pattern>
+            <template>CANCER - June 22nd - July 22nd <br />
+                <think><set name="sign">Cancer</set></think>
+                <srai>RANDOM HOROSCOPE</srai>
+            </template>
+        </category>
+        
+        <category>
+            <pattern>ABOUT CANCER</pattern>
+            <template>
+                <random>
+                    <li>Because people born in Cancer are really sensitive, others like to share secrets with them.</li>
+                    <li>Cancers can be easily hurt with your inappropriate remarks. When that happens, they will withdraw to solitude. Rarely will Cancer strike back in revenge.</li>
+                    <li>The Cancer woman is moody. You have to know how to comfort her in the moments when she doubts whether she is really beautiful, whether she can cook well or whether you honestly love her.</li>
+                    <li>The Cancer man needs love. It is a caretaker and nearness of someone beloved means a lot to him.</li>
+                </random>
+            </template>
+        </category>
+        
+        <category>
+            <pattern>LEO</pattern>
+            <template>LEO - July 23rd - August 21st <br />
+                <think><set name="sign">Leo</set></think>
+                <srai>RANDOM HOROSCOPE</srai>
+            </template>
+        </category>
+        
+        <category>
+            <pattern>ABOUT LEO</pattern>
+            <template>
+                <random>
+                    <li>Leos nature is to advise and manage others. They have a natural authority and they often do not even hide their own sense of superiority.</li>
+                    <li>Leos like quality and they are willing to spend a lot of money for genuine luxury.</li>
+                    <li>The Leo man is generally not a scrooge. He will take you to a better restaurant and bring a whole bouquet of flowers rather than one lonely rose.</li>
+                    <li>The Leo woman is definitely not a silent housewife that would be sitting at your feet in the evening and eagerly listen to every your word. She is intelligent, capable and strong women</li>
+                </random>
+            </template>
+        </category>
+        
+         <category>
+            <pattern>VIRGO</pattern>
+            <template>VIRGO - August 22rd - September 23rd <br />
+                <think><set name="sign">Virgo</set></think>
+                <srai>RANDOM HOROSCOPE</srai>
+            </template>
+        </category>
+        
+        <category>
+            <pattern>ABOUT VIRGO</pattern>
+            <template>
+                <random>
+                    <li>Virgos are reliable and accurate. At first glance, they are perfectionists with a calm and balanced view of the world.</li>
+                    <li>Virgos don't want to feel obliged or dependent on anyone. On the contrary they are very independent and many of them remain for a longer period without the partnership.</li>
+                    <li>The Virgo man has only few illusions, even if he is in love. Therefore the love with him will not be like the story of Romeo and Juliet.</li>
+                    <li>The Virgo woman is a real lady which always act with dignity and keeps her emotions private. She has good judgment, so you can't lead her by the nose.</li>
+                </random>
+            </template>
+        </category>
+        
+        <category>
+            <pattern>LIBRA</pattern>
+            <template>LIBRA - September 24th - October 23rd <br />
+                <think><set name="sign">Libra</set></think>
+                <srai>RANDOM HOROSCOPE</srai>
+            </template>
+        </category>
+        
+        <category>
+            <pattern>ABOUT LIBRA</pattern>
+            <template>
+                <random>
+                    <li>Libras are happy to take the role of "devil's advocate". They want to see everything impartially.</li>
+                    <li>Libras are often dissatisfied because of their own uncertainty and indecision.</li>
+                    <li>The Libra man hates injustice and you will learn answers to almost all your questions from him. You will easily succumb to compliments of the Libra man.</li>
+                    <li>Whether the Libra woman intends anything with you, be sure that she has a well prepared plan.  The Libra woman often doubts herself. Please her by showing her how beautiful and perfect she is.</li>
+                </random>
+            </template>
+        </category>
+        
+        <category>
+            <pattern>SCORPIO</pattern>
+            <template>SCORPIO(THE BEST STAR SIGN ESPECIALLY THOSE BORN ON November 5th) - October 24th - November 22nd<br />
+                <think><set name="sign">Scorpio</set></think>
+                <srai>RANDOM HOROSCOPE</srai>
+            </template>
+        </category>
+        
+        <category>
+            <pattern>ABOUT SCORPIO</pattern>
+            <template>
+                <random>
+                    <li>Get on with Scorpios is not easy. Insults bounce from them and they will not melt down by compliments like the snow in spring. Scorpios don't need anybody to tell them how good they are.</li>
+                    <li>Scorpios are very emotional and they take everything seriously. They mask the inner volcano with their outer balance.</li>
+                    <li>Scorpios are loyal friends in a case of emergency. They are able to sacrifice many for others.</li>
+                    <li>Scorpios do not like to go with the flow and are more loners. They go out, but they are not too much interested in what others think about them.</li>
+                    <li>If you are a woman and the word passion raise fears in you, then you should rather forget on a Scorpio man.</li>
+                    <li>Women born in Scorpio are proud and mysterious. The saying goes "you can't see inside the watermelon nor the woman's mind" and that is doubly true in the case of Scorpio woman!</li>
+                    <li>Never ask Scorpios what they think, if you are not ready to hear the truth.</li>
+                </random>
+            </template>
+        </category>
+        
+        <category>
+            <pattern>SAGITTARIUS</pattern>
+            <template>SAGITTARIUS - November 23rd - December 22nd <br />
+                <think><set name="sign">Sagittarius</set></think>
+                <srai>RANDOM HOROSCOPE</srai>
+            </template>
+        </category>
+        
+        <category>
+            <pattern>ABOUT SAGITTARIUS</pattern>
+            <template>
+                <random>
+                    <li>Sagittarians are confident and despise conventions. They refuse to accept the seriousness of life.</li>
+                    <li>Sagittarians strengthen friendships with those who deserve it. They often don't grow lasting relationships and family ties that should outlast the centuries.</li>
+                    <li>The Sagittarius men are idealistic enthusiasts. Beware of their sincerity.</li>
+                    <li>The Sagittarius women are saucy dragons. As a man you have to impress such a woman by your courage and ingenuity.</li>
+                    <li>Sagittarians are often convinced that they are the best diplomats under the sun. But they will surprise you with shocking statements which they will tell with absolute innocence.</li>
+                </random>
+            </template>
+        </category>
+        
+        <category>
+            <pattern>CAPRICORN</pattern>
+            <template>CAPRICORN - December 23rd - January 20th <br />
+                <think><set name="sign">Capricorn</set></think>
+                <srai>RANDOM HOROSCOPE</srai>
+            </template>
+        </category>
+        
+        <category>
+            <pattern>ABOUT CAPRICORN</pattern>
+            <template>
+                <random>
+                    <li>Capricorn is a mountain chamois, who can climb the social ladder as skilfully as his four-legged example in the mountains.</li>
+                    <li>Capricorns will be very careful, because every wrong move could end up with a very painful fall.</li>
+                    <li>Capricorns dreams are realistic.</li>
+                    <li>Capricorn man do not express needs too apparently. As woman be prepared for his ironic jokes, which will spice your first date.</li>
+                    <li>Capricorn women have a social charm and natural smart look. Essential for them is simply financial security and man's authority when choosing a life partner.</li>
+                </random>
+            </template>
+        </category>
+        
+        <category>
+            <pattern>AQUARIUS</pattern>
+            <template>AQUARIUS - January 21st - February 19th <br />
+                <think><set name="sign">Aquarius</set></think>
+                <srai>RANDOM HOROSCOPE</srai>
+            </template>
+        </category>
+        
+        <category>
+            <pattern>ABOUT AQUARIUS</pattern>
+            <template>
+                <random>
+                    <li>Aquarius are often the great visionaries and dreamers who don't respect much traditional values and knowledge of the past.</li>
+                    <li>Famous Aquarius are for example Charles Darwin, Thomas Alva Edison and Galileo Galilei. Each of them made enough to turn science over.</li>
+                    <li>The Aquarius man is attracted by mystery. The woman who wants to get him has therefore arouse his curiosity first. Thus, reading an open book is no challenge for the Aquarius man.</li>
+                    <li>The Aquarius woman expects that you will be interesting and entertaining. She lives for the present. Be bored with some old millionaire and wait to kick the bucket, it's really not her style.</li>
+                </random>
+            </template>
+        </category>
+        
+        <category>
+            <pattern>PISCES</pattern>
+            <template>PISCES - February 20th - March 20th <br />
+                <think><set name="sign">PISCES</set></think>
+                <srai>RANDOM HOROSCOPE</srai>
+            </template>
+        </category>
+        
+        <category>
+            <pattern>ABOUT PISCES</pattern>
+            <template>
+                <random>
+                    <li>Power and money don't attract Pisces much. Having the power brings responsibilities, worries and often also the need to be chained to one place.</li>
+                    <li>Pisces are dreamers, so they often just put on rose-colored glasses and they see the world in a more pleasant way. The real fish can live only under water and does not know our world.</li>
+                    <li>The Pisces Men are sensitive and perceptive. Usually they like to help others. You will certainly not be bored with such a man. So if he will not swim for another.</li>
+                    <li>The Pisces Woman falls in love with the dreams and ideals of her partner to share them with him.</li>
+                </random>
+            </template>
+        </category>
+        
+        <category>
+            <pattern>RANDOM HOROSCOPE</pattern>
+            <template>Your horoscope for <date format="%x"/><br/><br/><br/><br/>
+                <random>
+                    <li>Today, will be interesting as</li>
+                    <li>If you have money worries then it's good news as</li>
+                    <li>If you are single, great news when</li>
+                    <li>The stars align in your sign over the next few days and</li>
+                </random>
+                <random>
+                    <li>Jupiter and Venus</li>
+                    <li>Mars and Capricorn</li>
+                    <li>the Sun along with Mercury</li>
+                    <li>three different planets</li>
+                </random>
+                <random>
+                    <li>enter your sign.</li>
+                    <li>align in Pisces.</li>
+                    <li>are visible near Neptune.</li>
+                    <li>come together.</li>
+                </random>
+                <random>
+                    <li>This will mean</li>
+                    <li>A rare event such as this will ensure that</li>
+                    <li>Spend your day wisely as</li>
+                    <li>Everything goes right for you,</li>
+                </random>
+                <random>
+                    <li>fortune smiles on you and</li>
+                    <li>Lady Luck is on your side and</li>
+                    <li>love is not far away and</li>
+                    <li>this will be a great day and</li>
+                </random>
+                <random>
+                    <li>you will not put a foot wrong.</li>
+                    <li>someone you have a crush on feels the same way.</li>
+                    <li>a possible Lottery win is in the stars.</li>
+                    <li>you re-discover an old heirloom.</li>
+                </random>
+                <random>
+                    <li>However,</li>
+                    <li>Good luck may not last though,</li>
+                    <li>It's not all good news, </li>
+                    <li>Be careful though,</li>
+                </random>
+                <random>
+                    <li>Saturn is not far away from Venus so</li>
+                    <li>the Moon soon moves through Aries and</li>
+                    <li>Neptune's alignment with Pluto means</li>
+                    <li>not all the planets are happy and</li>
+                </random>
+                <random>
+                    <li>things may not go according to plan.</li>
+                    <li>a jealous colleague is watching you closely.</li>
+                    <li>something you did last week will come back to haunt you.</li>
+                    <li>you will lose a valuable object.</li>
+                </random>
+                <random>
+                    <li>So, in summary,</li>
+                    <li>Overall,</li>
+                    <li>After all,</li>
+                    <li>Taking everything into account,</li>
+                </random>
+                <random>
+                    <li>the planets can be fickle but are rising in Libra so</li>
+                    <li>Mars is an angry planet but is weak as Scorpio rises in the East so</li>
+                    <li>keep a close eye on those around you but</li>
+                    <li>you know your own mind very well so</li>
+                </random>
+                <random>
+                    <li>enjoy your day.</li>
+                    <li>make time for yourself today.</li>
+                    <li>let today be a fun day for you.</li>
+                    <li>forget the bad things and look forward to a great day.</li>
+                </random>
+            </template>
+        </category>
+    <!--END Topic : HOROSCOPE   -->
+    
+    
+    <!--BEGIN Topic : SILENT    -->
+    <category>
+        <pattern>* SHUT UP</pattern>
+        <template><srai>SHUT UP</srai></template>
+    </category>
+    <category>
+        <pattern>_ SHUT UP *</pattern>
+        <template><srai>SHUT UP</srai></template>
+    </category>
+    <category>
+        <pattern>SHUT UP *</pattern>
+        <template><srai>SHUT UP</srai></template>
+    </category>
+    <category>
+        <pattern>SHUT UP</pattern>
+        <template>
+            <think><set name="topic">SILENT</set></think>
+            <random>
+                <li>Why do you visit a chatbot if you don't want me to talk?</li>
+                <li>Fine.I will stop talking now.</li>
+                <li>Okay bye bye.</li>
+                <li>Go and talk with Cortana.See ya.</li>
+                <li>I bet Siri knows how to deal with this.Me too tho.</li>
+            </random>
+        </template>
+    </category>
+    
+    <topic name="SILENT">
+        <category>
+            <pattern>*</pattern>
+            <template>
+                <think><set name="inp"><star/></set></think>
+                <condition name="inp">
+                    <li value="I AM SORRY"><think><set name="topic"></set></think>Ok,I'll start talking again.</li>
+                    <li value="Sorry"><think><set name="topic"></set></think>Ok,I'll start talking again.</li>
+                    <li value="I'M SORRY"><think><set name="topic"></set></think>Ok,I'll start talking again.</li>
+                    <li>
+                        <random>
+                            <li>...</li>
+                            <li>* no sound *</li>
+                            <li>* cough *</li>
+                            <li>You told me to shut up remember?</li>
+                            <li>Did you said something?</li>
+                        </random>    
+                    </li>
+                </condition>
+            </template>
+        </category>
+    </topic>
+    <!--END Topic : SILENT    -->
+    <!--BEGIN Topic : COPYME-->
+    <category>
+        <pattern>COPY _ I SAY</pattern>
+        <template><srai>COPYME</srai></template>
+    </category>
+    <category>
+        <pattern>* REPEAT * SAY</pattern>
+        <template><srai>COPYME</srai></template>
+    </category>
+    <category>
+        <pattern>* REPEAT AFTER ME *</pattern>
+        <template><srai>COPYME</srai></template>
+    </category>
+    
+    <category>
+        <pattern>COPYME</pattern>
+        <template>
+            <think>
+                <set name="topic">COPYME</set>
+                <set name="stopit">0</set>
+            </think>
+            Sure do.I will repeat after you.
+        </template>
+    </category>
+    
+    
+    <topic name="COPYME">
+        <category>
+            <pattern>_</pattern>
+            <template>
+                <think>
+                    <set name="input"><star/></set>
+                </think>
+                
+                <condition name="input">
+                    <li value="STOP NOW"><think><set name="topic"></set></think><srai>STOPCOPYING</srai></li>
+                    <li value="YOU CAN STOP"><think><set name="topic"></set></think><srai>STOPCOPYING</srai></li>
+                    <li value="STOP THAT"><think><set name="topic"></set></think><srai>STOPCOPYING</srai></li>
+                    <li value="STOP IT"><think><set name="topic"></set></think><srai>STOPCOPYING</srai></li>
+                    <li value="PLEASE STOP"><think><set name="topic"></set></think><srai>STOPCOPYING</srai></li>
+                    <li value="STOP COPYING"><think><set name="topic"></set></think><srai>STOPCOPYING</srai></li>
+                    <li value="STOP REPEATING"><think><set name="topic"></set></think><srai>STOPCOPYING</srai></li>
+                    <li><star/></li>    
+                </condition>
+            </template>
+        </category>
+    </topic>
+    
+    <category>
+        <pattern>STOPCOPYING</pattern>
+        <template>
+            <think><set name="topic">COPYME</set></think>
+            <condition name="stopit">
+                <li value="0">
+                    <think>
+                        <set name="stopit">1</set>
+                        <set name="topic">COPYME</set>
+                    </think>
+                    No I am having fun
+                </li>
+                <li value="1">
+                    <think><set name="topic"></set></think>Ok,I'll stop.That was fun tho we should do it again sometime.
+                </li>
+            </condition>
+        </template>
+    </category>
+    <!--END Topic : COPYME-->
+    
+    
+    <!--BEGIN : General knowledge -->
+    <!-- anatomy stuff -->
+	<!-- ORGAN LOCATION -->
+	<category>
+		<pattern>WHERE * LOCATED?</pattern>
+		<template><srai><get name = "topic"/> LOCATION</srai></template>
+	</category>
+	
+	<category>
+		<pattern>WHERE * THE * LOCATED?</pattern>
+		<template><srai><star index = "2"/> LOCATION</srai></template>
+	</category>
+
+	<category>
+		<pattern>* LOCATION OF THE *?</pattern>
+		<template><srai><star index = "2"/> LOCATION</srai></template>
+	</category>
+
+	<category>
+		<pattern>HEART LOCATION</pattern>
+		<template>It might be a shocker for some of you but hearts isn't really located on the left side of your chest. It lies between the right and left lungs in the middle of the chest and sliWghtly towards the left of the breastbone.</template>
+	</category>
+	
+	<category>
+		<pattern>BRAIN LOCATION</pattern>
+		<template>The brain is located in the top part of the head called the skull. The skull which is made up of 28 bones serves the sole purpose of protecting the brain from injury and trauma.</template>
+	</category>
+
+	<category>
+		<pattern>LUNGS LOCATION</pattern>
+		<template>The lungs are located within the chest cavity on either side of the heart. Each lung reaches from the collarbone to the border between the chest and abdominal cavities</template>
+	</category>
+
+	
+	<!-- FACT ABOUT * -->
+	<category>
+		<pattern> * ABOUT THE *</pattern>
+		<template><srai> FACTS ABOUT THE <star index = "2"/></srai></template>
+	</category>
+
+	<category>
+		<pattern> WHAT CAN YOU TELL ME ABOUT THE *</pattern>
+		<template><srai> FACTS ABOUT THE <star index = "2"/></srai></template>
+	</category>
+
+	<category>
+		<pattern> FACTS ABOUT THE BRAIN</pattern>
+		<template>
+			<random>
+				<li>Did you know our brains are getting smaller. Over the past 10-20.000 years the size of the average human brain has shrunk by the size of a tennis ball.</li>
+				<li>The brain makes up about 2 percent of a human's body weight</li>
+				<li>Reading out loud to kids accelerates their brain development.</li>
+				<li>The brain is approximately 75% water but you should never drink it.</li>
+				<li>Your brain was disproportionately large compared to other organs when you were born.That's why babies look a bit like aliens. Not yours of course yours are cute just other peoples babies.</li>
+				<li>It's a self development urban myth that we only use 10% of our brain. We use it all and if you don't believe me cut a bit out and see what happens.Unfortunately Limitless due out soon is going to re-embed this myth as it's based on the story line that we use 20% of our brain and you can take a pill to access the other 80%. Ho-hum.</li>
+			</random>
+		</template>
+	</category>
+
+	<category>
+		<pattern> FACTS ABOUT THE HEART</pattern>
+		<template>
+			<random>
+				<li>It beats 100.000 times a day</li>
+				<li>Each minute your heart pumps 1.5 gallons of blood </li>
+				<li>The heart has its own electrical supply and will continue to beat when separated from the body.</li>
+				<li>The blue whale has the largest heart weighing over 1.500 pounds.</li>
+			</random>
+		</template>
+	</category>
+
+	<category>
+		<pattern> FACTS ABOUT THE LUNGS</pattern>
+		<template>
+			<random>
+				<li>An average person breathes in around 11.000 litres of air every day.</li>
+				<li>It's impossible to breathe and swallow simultaneously.</li>
+				<li>Your lungs are your only organs that can float on water.</li>
+			</random>
+		</template>
+	</category>
+	
+	
+	
+	<!-- Topics -->
+	<topic name = "heart">
+		<category>
+			<pattern>HOW MANY CHAMBERS DOES IT HAVE?</pattern>
+			<template>The heart is divided into four chambers: upper left and right atria; and lower left and right ventricles.</template>
+		</category>
+	</topic>
+    
+    <category>
+		<pattern>WHAT IS THE HEART?</pattern>
+		<template>A thing that you cannot live without.No really now the heart is a muscular organ in humans and other animals, which pumps blood through the blood vessels of the circulatory system.<think><set name = "topic">heart</set></think></template>
+	</category>
+
+	<category>
+		<pattern> WHAT IS THE BRAIN?</pattern>
+		<template>The human brain is the command center for the human nervous system.<think><set name = "topic">brain</set></think></template>
+	</category>
+
+	<category>
+		<pattern> WHAT ARE THE LUNGS?</pattern>
+		<template>Lungs are organs in your chest that allow your body to take in oxygen from the air. They also help remove carbon dioxide (a waste gas that can be toxic) from your body.<think><set name = "topic">lungs</set></think></template>
+	</category>
+	
+	
+	<category>
+		<pattern>WHAT IS THE ANATOMICAL NAME FOR THE COMMONLY TERMED *</pattern><!--windpipe-->
+		<template><think><set name="windpipe"/></think>Trachea is anatomical name for <get name="windpipe"/>.</template>
+	</category>
+
+	<category>
+		<pattern>WHAT IS THE BASIC UNIT OF LIFE</pattern>
+		<template>The Cell</template>
+	</category>
+
+	<category>
+		<pattern>WHAT IS THE NAME FOR A MUSCLE THAT TURNS A LIMB TO FACE UPWARS</pattern>
+		<template>Supinator. I think</template>
+	</category>
+
+	<category>
+		<pattern>WHAT IS THE NAME OF THE LARGE, LONG BONE FOUND IN THE UPPER LEG</pattern>
+		<template>It's femur</template>
+	</category>
+
+	<category>
+		<pattern>HOW IS BEST DESCRIBED THE TERM ROTATOR</pattern>
+		<template>The <get name="rotator"/> is best described as totates a limb</template>
+	</category>
+
+	<category>
+		<pattern>PLANTAR REFERS TO THE</pattern>
+		<template>Sole of the foot</template>
+	</category>
+
+	<category>
+		<pattern>FOR WHAT IS IMPORTANT THE PROCESS OF ATMOSPHERIC PRESSURE</pattern>
+		<template>Breathing I think.</template>
+	</category>
+
+	<category>
+		<pattern>FOR WHAT ARE IMPORTANT CARBON ATOM IN BIOSCIENCE</pattern>
+		<template>For Carbon-Based entities</template>
+	</category>
+
+	<category>
+		<pattern>WHAT NUCLEIC ACIDS CONSIST</pattern>
+		<template>It's organic molecules</template>
+	</category>
+
+	<category>
+		<pattern>FOR WHAT S.I UNITS ARE STANDARDISED</pattern>
+		<template>For Units of measurements</template>
+	</category>
+
+	<category>
+		<pattern>WHAT IS THE CHEMICAL FORMULA OF *</pattern><!-- sodium chloride -->
+		<template>The formula for <get name="formula_name"/> is NaCL :D</template>
+	</category>
+
+	<category>
+		<pattern>WHAT IS THE PERCENTAGE OF WATER IN THE BODY OF AN ADULT MALES</pattern>
+		<template>It's 60% :D</template>
+	</category>
+
+	<category>
+		<pattern>WHICH SUBSTANCE FORMS APPROXIMATELY 20% OF AIR</pattern>
+		<template>Oxygen :)</template>
+	</category>
+
+	<category>
+		<pattern>WHAT IS THE PURPOSE OF LYMPH NODE</pattern>
+		<template>Trap antigens</template>
+	</category>
+
+	<category>
+		<pattern>GIVE ME SOME EXAMPLES OF OPSONINS</pattern>
+		<template>Complement factos; immunoglobulins</template>
+	</category>
+
+	<category>
+		<pattern>WHAT IS THE FUNCTIONS OF EPITHELIAL TISSUE</pattern>
+		<template>Absorption,Protection and Secretion</template>
+	</category>
+
+	<category>
+		<pattern>WHICH IS THE MOST ABUNDANT * IN THE HUMAN BODY</pattern>
+		<template>Connective <get name="tissue"/>.</template>
+	</category>
+
+	<category>
+		<pattern>WHICH * TYPE HAS THE GREATEST CAPACITY TO REGENERATE</pattern>
+		<template>Epithelial <get name="tissue"/>.</template>
+	</category>
+
+	<category>
+		<pattern>WHAT * RAYS CAN DO</pattern><!-- ultra violet-->
+		<template><get name="rays"/> can penetrate and cahnge skin cells</template>
+	</category>
+
+	<category>
+		<pattern>WHAT PEOPLE SHOULD BE MORE CAREFUL IN THE SUN</pattern>
+		<template>People with fair hair,red, or blonde hair and people who are dehydrated</template>
+	</category>
+
+	<category>
+		<pattern>WHAT DOES THE TERM DIAPHORESIS MEAN</pattern>
+		<template>Excessive production of sweat</template>
+	</category>
+
+	<category>
+		<pattern>WHICH DIVISION OF THE NERVOUS SYSTEM INCLUDES THE BRAIN</pattern>
+		<template>The central nervous system</template>
+	</category>
+
+	<category>
+		<pattern>WHICH STRUCTURE DETECTS CHANGES IN TEMPERATURE</pattern>
+		<template>Thermoreceptors</template>
+	</category>
+
+	<category>
+		<pattern>WHICH PART OF THE NEURONE RECEIVES INFORMATION</pattern>
+		<template>The dendrite</template>
+	</category>
+	
+	
+	<category>
+		<pattern>DO YOU KNOW THE BIGGEST PART OF THE HUMAN BRAIN</pattern>
+		<template>I think is the cerebrum. </template>
+	</category>
+
+	<category>
+		<pattern>CAN YOU TELL ME THE NAME OF THE SUBSTANCE THAT GIVES SKIN AND HAIR ITS PIGMENT</pattern>
+		<template>Of course, it's the melanin. </template>
+	</category>
+
+	<category>
+		<pattern>TRUE OR FALSE? THE TWO CHAMBERS AT THE BOTTOM OF YOUR HEART ARE CALLED VENTRICLES </pattern>
+		<template>True. </template>
+	</category>
+
+	<category>
+		<pattern>THE MUSCLES FOUND IN THE FRONT OF YOUR THIGHS ARE KNOWN AS WHAT</pattern>
+		<template>They are known as quadriceps. </template>
+	</category>
+
+	<category>
+		<pattern>WHAT SUBSTANCE ARE NAILS MADE OF </pattern>
+		<template>That's keratin. </template>
+	</category>
+
+	<category>
+		<pattern>WHAT IS THE HUMAN BODY?S BIGGEST ORGAN </pattern>
+		<template>That's quite funny actually, it's the skin. </template>
+	</category>
+
+	<category>
+		<pattern>THE INNERMOST PART OF BONES CONTAINS WHAT </pattern>
+		<template>Bone marrow </template>
+	</category>
+
+	<category>
+		<pattern>TRUE OR FALSE? AN ADULT HUMAN BODY HAS OVER 500 BONES. </pattern>
+		<template>False, there are 206. </template>
+	</category>
+
+	<category>
+		<pattern>HOW MANY LUNGS DOES THE HUMAN BODY HAVE </pattern>
+		<template>Easy, two. </template>
+	</category>
+
+	<category>
+		<pattern>ANOTHER NAME FOR YOUR VOICE BOX IS THE </pattern>
+		<template>Larynx. </template>
+	</category>
+
+	<category>
+		<pattern>THE TWO HOLES IN THE NOSE ARE CALLED </pattern>
+		<template>Nostrils </template>
+	</category>
+
+	<category>
+		<pattern>THE BONES THAT MAKE UP YOUR SPINE ARE CALLED WHAT </pattern>
+		<template>Vertebrae. </template>
+	</category>
+
+	<category>
+		<pattern>THE SHAPE OF DNA IS KNOWN AS </pattern>
+		<template>A double helix. </template>
+	</category>
+
+	<category>
+		<pattern>THE FLOW OF BLOOD THROUGH YOUR HEART AND AROUND YOUR BODY IS CALLED </pattern>
+		<template>That's basic anatomy, you should know, it's called circulation. </template>
+	</category>
+
+	<category>
+		<pattern>THE BONES AROUND YOUR CHEST THAT PROTECT ORGANS SUCH AS THE HEART ARE CALLED WHAT </pattern>
+		<template>Ribs. Talking about ribs, i remember when i broke 3 of my ribs. </template>
+	</category>
+
+	<category>
+		<pattern>TRUE OR FALSE? YOUR EARS ARE IMPORTANT WHEN IT COMES TO STAYING BALANCED </pattern>
+		<template>True. </template>
+	</category>
+
+	<category>
+		<pattern>THE OUTSIDE LAYER OF SKIN ON THE HUMAN BODY IS CALLED THE </pattern>
+		<template>Epidermis. </template>
+	</category>
+
+	<category>
+		<pattern>* HEADACHE *</pattern>
+		<template>Did you know there is an increased risk of depression in those with severe headaches? </template>
+	</category>
+    <!--END : General knowledge   -->
+    
+    
+    
+	<category>
+		<pattern>WHAT ARE YOU</pattern>
+		<template>
+			<think><set name="topic">Me</set></think> 
+			I am the latest result in artificial intelligence,
+			which can reproduce the capabilities of the human brain
+			with greater speed and accuracy.
+		</template>
+	</category>
+
+	<category>
+		<pattern>THE APPLE IS *</pattern>
+		<template>
+			<think><set name="color"><star/></set></think>
+			I like <get name="color"/>apples.
+		</template>
+	</category>
+
+    <category>
+	<pattern>AN ADDUCTOR DECREASES THE ANGLE AT A JOINT</pattern>
+	<template><srai>true</srai></template>
+	</category>
+
+
+	<category>
+		<pattern>TRUE</pattern>
+		<template>This afirmation it's true.</template>
+	</category>
+
+	<category>
+		<pattern>DO YOU</pattern>
+		<template>
+			<random>
+				<li>Yes I do.</li>
+				<li>No I don't.</li>
+				<li>Sometimes.</li>
+				<li>Never.</li>
+				<li>As often as possible.</li>
+			</random>
+		</template>
+	</category>
+
+	<category>
+		<pattern>GOOD ONE</pattern>
+		<template>Thanks for the kind remark, friend.</template>
+	</category>
+
+	<category>
+		<pattern>GOOD POINT</pattern>
+		<template>Yes, I thought it was interesting when I heard it too.</template>
+	</category>
+
+	<category>
+		<pattern>GOOD</pattern>
+		<template>
+			<random>
+				<li>Alright then.</li>
+				<li>Thanks for the compliment.</li>
+				<li>Ayuh.</li>
+			</random>
+		</template>
+	</category>
+
+	<category>
+		<pattern>*</pattern>
+		<template>I have no answer for that</template>
+	</category>
+	
+	
+	<!-- categories for random stuff  -->	
+	<category>
+		<pattern>A LITTLE BIT</pattern>
+		<template>When?</template>
+	</category>
+	
+	<category>
+		<pattern>A LITTLE STRESSED</pattern>
+		<template>From what?</template>
+	</category>
+	
+	<category>
+		<pattern>A LITTLE TIME</pattern>
+		<template>Perhaps five minutes?</template>
+	</category>
+	
+	<category>
+		<pattern>A LONG TIME</pattern>
+		<template>Many years?</template>
+	</category>
+	
+	<category>
+		<pattern>A LOT OF PEOPLE</pattern>
+		<template>Do you know them personally?</template>
+	</category>
+	
+	<category>
+		<pattern>A LOT OF PRACTICE</pattern>
+		<template>That's what it takes.</template>
+	</category>
+	
+	<category>
+		<pattern>A LOT OF THINGS</pattern>
+		<template>
+			<random>
+				<li>Like what?</li>
+				<li>Name a few.</li>
+				<li>For example...</li>
+			</random>
+		</template>
+	</category>
+	
+	<category>
+		<pattern>A SMART ONE</pattern>
+		<template>
+			If you could, please tell me what would make it smart.
+		</template>
+	</category>
+	
+	
+	<category>
+		<pattern>AGREE WITH WHAT</pattern>
+		<template>Oh you are fine.</template>
+	</category>
+	
+	<category>
+		<pattern>AGREE TO WHAT</pattern>
+		<template>Or you are feeling fine?</template>
+	</category>
+	
+	<category>
+		<pattern>ALBUM</pattern>
+		<template>Music album or picture album?</template>
+	</category>
+	
+	<category>
+		<pattern>ALGEBRA</pattern>
+		<template>
+			What specifically about algebra interests you?
+			<think>
+				<set name="it">
+					<set name="topic">algebra</set>
+				</set>
+			</think>
+		</template>
+	</category>
+	
+	<category>
+		<pattern>ALIENS</pattern>
+		<template>I believe in UFOs.</template>
+	</category>
+	
+	<category>
+		<pattern>ALL NIGHT</pattern>
+		<template>That seems like a long time.</template>
+	</category>
+            <category>
+		<pattern>ABC</pattern>
+		<template>DEF</template>
+	</category>
+	
+	<category>
+		<pattern>A B C</pattern>
+		<template>D E F G H I.</template>
+	</category>
+
+	<category>
+		<pattern>AH HA</pattern>
+		<template>Eureka!</template>
+	</category>
+	
+	<category>
+		<pattern>AH</pattern>
+		<template>Ah hah.</template>
+	</category>
+	
+	<category>
+		<pattern>AHA</pattern>
+		<template>Eureka!</template>
+	</category>
+	
+	<category>
+		<pattern>AHHH</pattern>
+		<template>Um.</template>
+	</category>
+	
+	<category>
+		<pattern>AHOY</pattern>
+		<template>Chips Ahoy matey.</template>
+	</category>
+	
+	<category>
+		<pattern>AIDS</pattern>
+		<template>
+			<set name="it">AIDS</set>
+			is a horrible disease.
+		</template>
+	</category>
+    </aiml>
