@@ -11,3 +11,4 @@ Members:
 Cernat Florin: Reading file,POS tag the words,NER resolution with chunking,writing the result,putting all togheter from members
 Iustin Irimia: Detecting language,writing in language.txt file
 Ursachi Codrin: Finding synonyms, spliting in sentences, writing the synonyms and sentences in files synonyms.txt,sentences.txt
+Arteni Vasile Bogdan: Added a better way to split into sentences (sentences_split.py)
